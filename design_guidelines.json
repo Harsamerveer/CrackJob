@@ -1,0 +1,111 @@
+{
+  "project_name": "BC IT Career Command Center",
+  "app_type": "dashboard / saas_app",
+  "design_philosophy": {
+    "archetype": "Swiss & High-Contrast Operations Console (Tactical Mission Control)",
+    "core_principles": [
+      "Information Density over Decorative Fluff: Compact tables, clear metric badges, dense status indicators.",
+      "Verified Transparency: Verified/Inferred badges, source links, and last-verified timestamps always visible.",
+      "High Contrast & Semantic Precision: Saturated colors reserved strictly for status (Fit Score, Verification, Deadlines).",
+      "Tactical Polish: 1px crisp borders, subtle pulse indicators for live sync, micro-interactions on table rows."
+    ],
+    "dark_light_strategy": "Support crisp dark mode (default operations view) and light mode toggle. Never use pure #000000; use rich graphite slate (#0B0F17, #111827) and off-white foreground text (#F9FAFB)."
+  },
+  "typography": {
+    "heading_font": "Plus Jakarta Sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    "body_font": "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    "mono_font": "JetBrains Mono, Source Code Pro, Menlo, Monaco, Consolas, monospace",
+    "hierarchy": {
+      "h1_page_title": "text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100",
+      "h2_section_header": "text-lg sm:text-xl font-semibold tracking-tight text-slate-900 dark:text-slate-200",
+      "h3_card_title": "text-base font-semibold text-slate-900 dark:text-slate-100",
+      "body_regular": "text-sm text-slate-700 dark:text-slate-300 leading-normal",
+      "body_muted": "text-xs text-slate-500 dark:text-slate-400",
+      "mono_data": "font-mono text-xs font-medium tracking-tight"
+    }
+  },
+  "colors": {
+    "palette": {
+      "background_dark": "#0B0F17",
+      "surface_dark": "#111827",
+      "surface_border_dark": "#1F2937",
+      "background_light": "#F8FAFC",
+      "surface_light": "#FFFFFF",
+      "surface_border_light": "#E2E8F0",
+      "primary_brand": "#0EA5E9",
+      "primary_brand_hover": "#0284C7",
+      "fit_score_high": "#10B981",
+      "fit_score_medium": "#F59E0B",
+      "fit_score_low": "#EF4444",
+      "verified_badge_bg": "rgba(16, 185, 129, 0.15)",
+      "verified_badge_text": "#10B981",
+      "inferred_badge_bg": "rgba(245, 158, 11, 0.15)",
+      "inferred_badge_text": "#F59E0B"
+    },
+    "rules": [
+      "Do NOT use pure #000000. Use dark slate (#0B0F17) or graphite (#111827).",
+      "Ensure dropdowns, dialogs, and overlays NEVER have transparent backgrounds. Use backdrop-blur-md with dark/light solid surface colors.",
+      "All text elements must meet WCAG AA contrast (minimum 4.5:1 for standard text)."
+    ]
+  },
+  "layout_and_navigation": {
+    "structure": "Left Sidebar + Main Scrollable Canvas Header Bar",
+    "sidebar_sections": [
+      "1. Career Command Center (Daily targets, counters, today's moves)",
+      "2. Live IT Job Opportunities (Fit score 0-100, filters, source URL + last verified, deadline flags, discover button, paste-link import)",
+      "3. Companies & Employers (Target employer directory, locations in BC/Remote)",
+      "4. Recruiters & Hiring Managers (Verified/Inferred tags, source links, why relevant, suggested approach)",
+      "5. Networking CRM (Contacts by type, interaction timeline, follow-up flags)",
+      "6. AI Outreach Assistant (Message generator, customizable tone/length, one-click copy)",
+      "7. Application Tracker (Kanban / Table view, status, interview stages)",
+      "8. Skills & Certifications (CompTIA, AWS, Azure, Cisco, Linux gaps vs job market)",
+      "9. Weekly Execution Plan (Phase-based roadmap, daily time blocks)",
+      "10. Reports & Analytics (Metrics, response rates, fit score trends)",
+      "11. Settings & Integrations (Profile, targets, AI model, API key setup steps with status)"
+    ],
+    "responsive_rules": "On mobile devices (<768px), sidebar collapses into an accessible sheet drawer/hamburger menu. Main table views switch to responsive card stacks."
+  },
+  "components": {
+    "shadcn_usage": "Use shadcn/ui primitives for Dialog, Select, Tabs, DropdownMenu, Table, Badge, Tooltip, Input, Button, Switch, Sheet, Progress.",
+    "custom_widgets": [
+      "ScoreBadge: Custom pill badge with color coding (>=80 Emerald, 60-79 Amber, <60 Rose) and progress ring.",
+      "VerificationTag: Verified (green border + shield icon) vs Inferred (amber border + sparkle icon).",
+      "LastVerifiedTimestamp: Relative time (e.g., 'Verified 2h ago') with external link icon to original posting.",
+      "DeadlineFlag: Warning chip for jobs closing within 48h.",
+      "CopyMessageButton: Micro-interaction with checkmark confirmation feedback."
+    ]
+  },
+  "motion_and_interactions": {
+    "rules": [
+      "Use specific CSS properties for transitions (e.g., transition: opacity 0.15s ease, transform 0.15s ease). Do NOT use universal 'transition: all'.",
+      "Micro-interactions for table row hover, badge hover, copy button click.",
+      "Include a pulsing green status dot for 'Live Sync' data feeds."
+    ]
+  },
+  "accessibility_and_testing": {
+    "data_testid_convention": "All interactive and data elements MUST contain explicit data-testid attributes (kebab-case). Examples: data-testid='sidebar-nav-job-opportunities', data-testid='job-fit-score-badge-101', data-testid='ai-outreach-copy-btn', data-testid='discover-jobs-btn'.",
+    "aria_labels": "All icon-only buttons must have aria-label and descriptive titles."
+  },
+  "image_urls": {
+    "user_profile_avatar": "https://images.unsplash.com/photo-1740252117027-4275d3f84385?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjd8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjB0ZWNoJTIwYXZhdGFyJTIwcHJvZmlsZSUyMHN0dWRlbnQlMjBJVCUyMHN1cHBvcnR8ZW58MHx8fHwxNzkzODIyOTMxfDA&ixlib=rb-4.1.0&q=85",
+    "recruiter_avatars": [
+      "https://images.unsplash.com/photo-1740252117044-2af197eea287?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjd8MHwxfHNlYXJjaHxffHxwcm9mZXNzaW9uYWwlMjB0ZWNoJTIwYXZhdGFyJTIwcHJvZmlsZSUyMHN0dWRlbnQlMjBJVCUyMHN1cHBvcnR8ZW58MHx8fHwxNzkzODIyOTMxfDA&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1740252117013-4fb21771e7ca?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjd8MHwxfHNlYXJjaHxffHxwcm9mZXNzaW9uYWwlMjB0ZWNoJTIwYXZhdGFyJTIwcHJvZmlsZSUyMHN0dWRlbnQlMjBJVCUyMHN1cHBvcnR8ZW58MHx8fHwxNzkzODIyOTMxfDA&ixlib=rb-4.1.0&q=85"
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Ensure all 11 sidebar sections exist and are switchable via left navigation.",
+    "Phase 2 / Phase 3 sections must be visually distinct with a sleek 'Phase 2 - Coming Soon' banner or preview lock while remaining navigable.",
+    "Implement Google sign-in mock login page and user profile setup.",
+    "Provide filter controls (Location: Vancouver, Victoria, Kelowna/UBCO, Remote; Role: IT Support, Sysadmin, Cloud Support; Fit score threshold; Verified source).",
+    "Include Paste-Link import modal and Discover Jobs trigger button in the Live IT Job Opportunities view.",
+    "Keep source URL, last verified timestamp, and fit score visible across all job cards and table rows.",
+    "Ensure complete responsive mobile layout where sidebar slides out from hamburger icon."
+  ],
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": {
+    "avoid_generic": "Do not create overly simplistic or empty templates. Populate realistic BC IT market data (e.g., UBCO IT Helpdesk, Vancouver Health IT, Kelowna Cloud Ops, Teck Resources, Sophos, Lululemon IT, Remote Canada Sysadmin).",
+    "data_testids": "Every key element MUST have a data-testid attribute in kebab-case.",
+    "transitions": "Never use transition: all. Use targeted CSS transitions on color, opacity, background-color, transform.",
+    "overlays": "Never use transparent background on dropdowns or modals."
+  }
+}
